@@ -13,8 +13,11 @@ def transform(df):
     return df
 def load(df,path):
     df.to_csv(path,index=False)
-df=extract("yellow_tripdata_2025-09.parquet")
-print(df.count())
-print(df.isna().sum())
-df=transform(df)
-load(df,"taxi_data.csv")
+
+if __name__ == "__main__":
+    df=extract("yellow_tripdata_2025-09.parquet")
+    print(df.count())
+    print(df.isna().sum())
+    df=transform(df)
+    load(df,"taxi_data.csv")
+    

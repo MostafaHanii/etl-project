@@ -3,7 +3,7 @@ import numpy as np
 
 
 def extract(path):
-    df=pd.read_parquet(path)
+    df=pd.read_csv(path)
     return df
 def transform(df):
     df=df.dropna(axis=0)
@@ -15,9 +15,9 @@ def load(df,path):
     df.to_csv(path,index=False)
 
 if __name__ == "__main__":
-    df=extract("yellow_tripdata_2025-09.parquet")
+    df=extract("data.csv")
     print(df.count())
     print(df.isna().sum())
     df=transform(df)
-    load(df,"taxi_data.csv")
+    load(df,"output.csv")
     
